@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Solo Improvement - Level up and transform through focused personal growth.">
+    <title>Solo Improvement</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #1c1c1c;
+            color: #f1f1f1;
+        }
+        h1, h2, h3 {
+            font-family: 'Georgia', serif;
+            color: #EACE09;
+        }
+        header {
+            background-color: #141414;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #EACE09;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+        }
+        nav {
+            margin-top: 20px;
+        }
+        nav a {
+            color: #f1f1f1;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            position: relative;
+            padding-bottom: 5px;
+        }
+        nav a::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: #EACE09;
+            transition: width 0.3s;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+        .section {
+            padding: 60px;
+            border-bottom: 1px solid #333;
+            background: #1c1c1c;
+        }
+        #about {
+            background: url('https://via.placeholder.com/1200x600') no-repeat center center;
+            background-size: cover;
+            color: #f1f1f1;
+        }
+        #about h2 {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px;
+            display: inline-block;
+        }
+        #portfolio img {
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid #EACE09;
+            margin: 10px;
+            border-radius: 10px;
+        }
+        #wiadn {
+            background-color: #121212;
+        }
+        .stats-bar {
+            margin-top: 10px;
+            background-color: #333;
+            border-radius: 20px;
+            width: 100%;
+            height: 30px;
+            overflow: hidden;
+        }
+        .stats-bar div {
+            height: 100%;
+            background-color: #EACE09;
+            width: 70%; /* Adjust this to reflect actual progress */
+            text-align: right;
+            padding-right: 10px;
+            line-height: 30px;
+            color: #000;
+            font-weight: bold;
+        }
+        footer {
+            background-color: #141414;
+            text-align: center;
+            padding: 20px;
+            border-top: 2px solid #EACE09;
+        }
+        .section h2 {
+            color: #EACE09;
+            border-bottom: 2px solid #EACE09;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .book-list, .middle-school, .running-log, .daily-quest {
+            background: #262626;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid #333;
+        }
+        .book-list ul, .middle-school ul, .running-log ul, .daily-quest ul {
+            list-style: none;
+            padding: 0;
+        }
+        .book-list li, .middle-school li, .running-log li, .daily-quest li {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+        .book-list li strong, .middle-school li strong, .running-log li strong, .daily-quest li strong {
+            color: #EACE09;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Solo Improvement</h1>
+        <nav>
+            <a href="#about">About</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#blog">Blog</a>
+            <a href="#wiadn">WIADN</a>
+            <a href="#stats">Stats</a>
+            <a href="#books">Books</a>
+            <a href="#middle-school">Middle School Learning</a>
+            <a href="#running">Running</a>
+            <a href="#daily-quest">Daily Quest</a>
+        </nav>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2>About Me</h2>
+        <p>This is where you can introduce yourself. Share your background, your journey, and how you're leveling up day by day. You’re on a solo quest for improvement, driven by both ambition and a hunger for mastery.</p>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="section">
+        <h2>Portfolio</h2>
+        <p>Here are some projects that showcase your progression:</p>
+        <img src="https://via.placeholder.com/400" alt="Project 1">
+        <img src="https://via.placeholder.com/400" alt="Project 2">
+        <img src="https://via.placeholder.com/400" alt="Project 3">
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="section">
+        <h2>Blog</h2>
+        <p>Share your thoughts, experiences, and reflections. Your blog is where you narrate your path to improvement. It’s the place to write about lessons learned, growth strategies, and life updates.</p>
+    </section>
+
+    <!-- WIADN Section -->
+    <section id="wiadn" class="section">
+        <h2>What I Am Doing Now</h2>
+        <p>Current Mission: <strong>Mastering the Art of Solo Leveling</strong></p>
+        <p>Latest achievement: <strong>Completed Chapter 3 of the 'Solo Growth' series</strong></p>
+        <p>Goal: <strong>Unlocking new abilities while leveling up physical, mental, and financial prowess.</strong></p>
+    </section>
+
+    <!-- Stats Section -->
+    <section id="stats" class="section">
+        <h2>Stats</h2>
+        <p>Level up your stats! Here's where you track your progress:</p>
+        <div class="stats-bar">
+            <div style="width: 80%;">Strength: 80%</div>
+        </div>
+        <div class="stats-bar">
+            <div style="width: 65%;">Intelligence: 65%</div>
+        </div>
+        <div class="stats-bar">
+            <div style="width: 90%;">Endurance: 90%</div>
+        </div>
+        <div class="stats-bar">
+            <div style="width: 75%;">Creativity: 75%</div>
+        </div>
+    </section>
+
+    <!-- Books Section -->
+    <section id="books" class="section">
+        <h2>Books (Finished)</h2>
+        <div class="book-list">
+            <ul>
+                <li><strong>The Power of Habit</strong> by Charles Duhigg</li>
+                <li><strong>Atomic Habits</strong> by James Clear</li>
+                <li><strong>Deep Work</strong> by Cal Newport</li>
+                <li><strong>Thinking, Fast and Slow</strong> by Daniel Kahneman</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Middle School Learning Section -->
+    <section id="middle-school" class="section">
+        <h2>Middle School Learning</h2>
+        <div class="middle-school">
+            <ul>
+                <li><strong>Mathematics:</strong> Focus on problem-solving skills and algebra.</li>
+                <li><strong>Science:</strong> Basic concepts in biology, chemistry, and physics.</li>
+                <li><strong>History:</strong> Understanding ancient civilizations and key historical events.</li>
+                <li><strong>Language Arts:</strong> Improving writing skills and reading comprehension.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Running Section -->
+    <section id="running" class="section">
+        <h2>Running</h2>
+        <div class="running-log">
+            <ul>
+                <li><strong>September 2024:</strong> Completed a 5K in 25 minutes.</li>
+                <li><strong>August 2024:</strong> Ran 10 miles in a weekend.</li>
+                <li><strong>July 2024:</strong> Started a 5K training program.</li>
+                <li><strong>June 2024:</strong> Ran every day for a month, averaging 4 miles per run.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Daily Quest Section -->
+    <section id="daily-quest" class="section">
+        <h2>Daily Quest</h2>
+        <div class="daily-quest">
+            <ul>
+                <li><strong>September 14, 2024:</strong> Completed a meditation session and read 20 pages of a new book.</li>
+                <li><strong>September 13, 2024:</strong> Wrote a reflection on personal growth and planned the next week's goals.</li>
+                <li><strong>September 12, 2024:</strong> Attended a webinar on productivity and ran 3 miles.</li>
+                <li><strong>September 11, 2024:</strong> Worked on a new project for 2 hours and practiced a new language for 30 minutes.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Solo Improvement. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
