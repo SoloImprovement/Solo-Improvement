@@ -251,5 +251,32 @@
         <p>&copy; 2024 Solo Improvement. All rights reserved.</p>
     </footer>
 
+<script>
+    // Scroll Progress Bar
+    window.addEventListener('scroll', () => {
+        const scrollPosition = document.documentElement.scrollTop;
+        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrollPercentage = (scrollPosition / windowHeight) * 100;
+        document.querySelector('.progress-bar div').style.width = scrollPercentage + '%';
+    });
+
+    // Back to Top Button
+    const backToTopButton = document.querySelector('.back-to-top');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopButton.style.display = 'block';
+        } else {
+            backToTopButton.style.display = 'none';
+        }
+    });
+
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+</script>
 </body>
 </html>
