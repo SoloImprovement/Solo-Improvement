@@ -1,16 +1,25 @@
 /* Basis Styles */
+:root {
+    --primary-color: #EACE09;
+    --secondary-color: #f1f1f1;
+    --dark-background: #141414;
+    --light-background: #1c1c1c;
+    --transition-speed: 0.3s;
+}
+
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #1c1c1c 0%, #141414 100%);
-    color: #f1f1f1;
+    background: linear-gradient(135deg, var(--light-background) 0%, var(--dark-background) 100%);
+    color: var(--secondary-color);
     font-size: 1.1rem;
     line-height: 1.6;
+    scroll-behavior: smooth; /* Smooth scroll for better UX */
 }
 
 h1, h2, h3 {
     font-family: 'Georgia', serif;
-    color: #EACE09;
+    color: var(--primary-color);
     text-transform: uppercase;
 }
 
@@ -32,13 +41,14 @@ p, li {
 }
 
 header {
-    background-color: #141414;
+    background-color: var(--dark-background);
     padding: 20px;
     text-align: center;
-    border-bottom: 2px solid #EACE09;
+    border-bottom: 2px solid var(--primary-color);
     position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* subtle shadow for effect */
 }
 
 header h1 {
@@ -52,14 +62,14 @@ nav {
 }
 
 nav a {
-    color: #f1f1f1;
+    color: var(--secondary-color);
     text-decoration: none;
     margin: 0 15px;
     font-size: 1.2rem;
     text-transform: uppercase;
     position: relative;
     padding-bottom: 5px;
-    transition: color 0.3s ease;
+    transition: color var(--transition-speed);
 }
 
 nav a::after {
@@ -67,8 +77,8 @@ nav a::after {
     display: block;
     width: 0;
     height: 2px;
-    background: #EACE09;
-    transition: width 0.3s;
+    background: var(--primary-color);
+    transition: width var(--transition-speed);
     position: absolute;
     bottom: 0;
     left: 0;
@@ -79,7 +89,7 @@ nav a:hover::after {
 }
 
 nav a:hover {
-    color: #EACE09;
+    color: var(--primary-color);
 }
 
 .section {
@@ -91,6 +101,8 @@ nav a:hover {
     background: url('https://via.placeholder.com/1200x600') no-repeat center center;
     background-size: cover;
     position: relative;
+    color: var(--secondary-color);
+    text-align: center; /* center-align text for better aesthetic */
 }
 
 #about:before {
@@ -109,13 +121,19 @@ nav a:hover {
     z-index: 2;
 }
 
+#portfolio {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 #portfolio img {
     width: 100%;
     max-width: 400px;
-    border: 3px solid #EACE09;
+    border: 3px solid var(--primary-color);
     margin: 10px;
     border-radius: 10px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 #portfolio img:hover {
@@ -134,7 +152,7 @@ nav a:hover {
 
 .stats-bar div {
     height: 100%;
-    background-color: #EACE09;
+    background-color: var(--primary-color);
     width: 0;
     text-align: right;
     padding-right: 10px;
@@ -158,6 +176,75 @@ nav a:hover {
 
 .stats-bar div:nth-child(4) {
     width: 75%;
+}
+
+/* Progress Bar for scroll */
+.progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--dark-background);
+    z-index: 9999;
+}
+
+.progress-bar div {
+    height: 100%;
+    background: var(--primary-color);
+    width: 0;
+}
+
+/* Button Styles */
+.button {
+    background-color: var(--primary-color);
+    border: none;
+    color: var(--dark-background);
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.button:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+/* Fade-in animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: none;
+    background-color: var(--primary-color);
+    color: var(--dark-background);
+    padding: 10px 15px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: opacity var(--transition-speed);
+}
+
+.back-to-top:hover {
+    opacity: 0.8;
 }
 
 @media (max-width: 768px) {
