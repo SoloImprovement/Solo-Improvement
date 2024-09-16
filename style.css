@@ -5,18 +5,28 @@
     --dark-background: #141414;
     --light-background: #1c1c1c;
     --transition-speed: 0.3s;
+    --font-size-base: 1.1rem;
+    --font-size-large: 3rem;
+    --font-size-medium: 2rem;
+    --font-size-small: 1.5rem;
+    --spacing-large: 80px;
+    --spacing-medium: 30px;
+    --spacing-small: 15px;
+    --button-padding: 15px 30px;
 }
 
+/* Global Styles */
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
     background: linear-gradient(135deg, var(--light-background) 0%, var(--dark-background) 100%);
     color: var(--secondary-color);
-    font-size: 1.1rem;
+    font-size: var(--font-size-base);
     line-height: 1.6;
-    scroll-behavior: smooth; /* Smooth scroll for better UX */
+    scroll-behavior: smooth;
 }
 
+/* Typography */
 h1, h2, h3 {
     font-family: 'Georgia', serif;
     color: var(--primary-color);
@@ -24,31 +34,32 @@ h1, h2, h3 {
 }
 
 h1 {
-    font-size: 3rem;
+    font-size: var(--font-size-large);
 }
 
 h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
+    font-size: var(--font-size-medium);
+    margin-bottom: var(--spacing-medium);
 }
 
 h3 {
-    font-size: 1.5rem;
+    font-size: var(--font-size-small);
 }
 
 p, li {
-    margin-bottom: 20px;
+    margin-bottom: var(--spacing-medium);
 }
 
+/* Header Styles */
 header {
     background-color: var(--dark-background);
-    padding: 20px;
+    padding: var(--spacing-small);
     text-align: center;
     border-bottom: 2px solid var(--primary-color);
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* subtle shadow for effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
 header h1 {
@@ -57,8 +68,9 @@ header h1 {
     letter-spacing: 5px;
 }
 
+/* Navigation */
 nav {
-    margin-top: 20px;
+    margin-top: var(--spacing-small);
 }
 
 nav a {
@@ -92,8 +104,9 @@ nav a:hover {
     color: var(--primary-color);
 }
 
+/* Sections */
 .section {
-    padding: 80px 60px;
+    padding: var(--spacing-large) var(--spacing-medium);
     border-bottom: 1px solid #333;
 }
 
@@ -102,7 +115,7 @@ nav a:hover {
     background-size: cover;
     position: relative;
     color: var(--secondary-color);
-    text-align: center; /* center-align text for better aesthetic */
+    text-align: center;
 }
 
 #about:before {
@@ -112,15 +125,17 @@ nav a:hover {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    background: rgba(0, 0, 0, 0.5);
     z-index: 1;
 }
 
 #about h2, #about p {
     position: relative;
     z-index: 2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
+/* Portfolio */
 #portfolio {
     display: flex;
     flex-wrap: wrap;
@@ -141,6 +156,7 @@ nav a:hover {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
+/* Stats Bar */
 .stats-bar {
     margin-top: 10px;
     background-color: #333;
@@ -162,23 +178,13 @@ nav a:hover {
     transition: width 2s ease;
 }
 
-.stats-bar div:nth-child(1) {
-    width: 80%;
-}
+/* Dynamic Progress Bar Width */
+.stats-bar div:nth-child(1) { width: 80%; }
+.stats-bar div:nth-child(2) { width: 65%; }
+.stats-bar div:nth-child(3) { width: 90%; }
+.stats-bar div:nth-child(4) { width: 75%; }
 
-.stats-bar div:nth-child(2) {
-    width: 65%;
-}
-
-.stats-bar div:nth-child(3) {
-    width: 90%;
-}
-
-.stats-bar div:nth-child(4) {
-    width: 75%;
-}
-
-/* Progress Bar for scroll */
+/* Scroll Progress Bar */
 .progress-bar {
     position: fixed;
     top: 0;
@@ -200,7 +206,7 @@ nav a:hover {
     background-color: var(--primary-color);
     border: none;
     color: var(--dark-background);
-    padding: 15px 30px;
+    padding: var(--button-padding);
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -216,7 +222,7 @@ nav a:hover {
     transform: translateY(-3px);
 }
 
-/* Fade-in animations */
+/* Fade-in Animation */
 .fade-in {
     opacity: 0;
     transform: translateY(20px);
@@ -247,6 +253,7 @@ nav a:hover {
     opacity: 0.8;
 }
 
+/* Mobile Styles */
 @media (max-width: 768px) {
     header h1 {
         font-size: 2rem;
@@ -272,6 +279,7 @@ nav a:hover {
     }
 }
 
+/* Very Small Screens (Mobile) */
 @media (max-width: 480px) {
     header h1 {
         font-size: 1.8rem;
@@ -284,4 +292,25 @@ nav a:hover {
         display: block;
         margin: 10px 0;
     }
+    .button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Performance Improvements */
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Lazy-loading images */
+img[data-lazy] {
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+img[data-lazy].loaded {
+    opacity: 1;
 }
