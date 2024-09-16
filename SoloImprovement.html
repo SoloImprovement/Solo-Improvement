@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,8 +10,9 @@
         body {
             margin: 0;
             font-family: 'Arial', sans-serif;
-            background-color: #1c1c1c;
+            background: linear-gradient(135deg, #1c1c1c 0%, #141414 100%);
             color: #f1f1f1;
+            scroll-behavior: smooth;
         }
         h1, h2, h3 {
             font-family: 'Georgia', serif;
@@ -22,6 +23,10 @@
             padding: 20px;
             text-align: center;
             border-bottom: 2px solid #EACE09;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
         header h1 {
             font-size: 2.5rem;
@@ -39,6 +44,7 @@
             text-transform: uppercase;
             position: relative;
             padding-bottom: 5px;
+            transition: color 0.3s;
         }
         nav a::after {
             content: '';
@@ -57,17 +63,28 @@
         .section {
             padding: 60px;
             border-bottom: 1px solid #333;
-            background: #1c1c1c;
+            background-color: #1c1c1c;
         }
         #about {
             background: url('https://via.placeholder.com/1200x600') no-repeat center center;
             background-size: cover;
             color: #f1f1f1;
+            position: relative;
         }
-        #about h2 {
-            background-color: rgba(0, 0, 0, 0.7);
-            padding: 10px;
-            display: inline-block;
+        #about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        #about h2, #about p {
+            position: relative;
+            z-index: 2;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
         #portfolio img {
             width: 100%;
@@ -75,9 +92,11 @@
             border: 3px solid #EACE09;
             margin: 10px;
             border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
-        #wiadn {
-            background-color: #121212;
+        #portfolio img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
         .stats-bar {
             margin-top: 10px;
@@ -90,12 +109,12 @@
         .stats-bar div {
             height: 100%;
             background-color: #EACE09;
-            width: 70%; /* Adjust this to reflect actual progress */
             text-align: right;
             padding-right: 10px;
             line-height: 30px;
             color: #000;
             font-weight: bold;
+            transition: width 2s ease;
         }
         footer {
             background-color: #141414;
@@ -126,6 +145,70 @@
         }
         .book-list li strong, .middle-school li strong, .running-log li strong, .daily-quest li strong {
             color: #EACE09;
+        }
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: none;
+            background-color: #EACE09;
+            color: #141414;
+            padding: 10px 15px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        .back-to-top:hover {
+            opacity: 0.8;
+        }
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: #141414;
+            z-index: 9999;
+        }
+        .progress-bar div {
+            height: 100%;
+            background: #EACE09;
+            width: 0;
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            nav a {
+                font-size: 1rem;
+                margin: 0 10px;
+            }
+            .section {
+                padding: 30px;
+            }
+            #portfolio img {
+                width: 100%;
+                max-width: 100%;
+                margin: 10px 0;
+            }
+        }
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            nav {
+                display: block;
+                text-align: center;
+            }
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+            .button {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
@@ -173,7 +256,7 @@
         <h2>What I Am Doing Now</h2>
         <p>Current Mission: <strong>Mastering the Art of Solo Leveling</strong></p>
         <p>Latest achievement: <strong>Completed Chapter 3 of the 'Solo Growth' series</strong></p>
-        <p>Goal: <strong>Unlocking new abilities while leveling up physical, mental, and financial prowess.</strong></p>
+            <p>Goal: <strong>Unlocking new abilities while leveling up physical, mental, and financial prowess.</strong></p>
     </section>
 
     <!-- Stats Section -->
@@ -251,32 +334,40 @@
         <p>&copy; 2024 Solo Improvement. All rights reserved.</p>
     </footer>
 
-<script>
-    // Scroll Progress Bar
-    window.addEventListener('scroll', () => {
-        const scrollPosition = document.documentElement.scrollTop;
-        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        const scrollPercentage = (scrollPosition / windowHeight) * 100;
-        document.querySelector('.progress-bar div').style.width = scrollPercentage + '%';
-    });
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+        <div></div>
+    </div>
 
-    // Back to Top Button
-    const backToTopButton = document.querySelector('.back-to-top');
+    <!-- Back to Top Button -->
+    <div class="back-to-top">&#8679;</div>
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            backToTopButton.style.display = 'block';
-        } else {
-            backToTopButton.style.display = 'none';
-        }
-    });
-
-    backToTopButton.addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+    <script>
+        // Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const scrollPosition = document.documentElement.scrollTop;
+            const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercentage = (scrollPosition / windowHeight) * 100;
+            document.querySelector('.progress-bar div').style.width = scrollPercentage + '%';
         });
-    });
-</script>
+
+        // Back to Top Button
+        const backToTopButton = document.querySelector('.back-to-top');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
 </body>
 </html>
